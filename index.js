@@ -63,8 +63,6 @@ app.get('/imagen', (req,res)=>{
             }
         })
     })
-   
     )
-    
 })
 
