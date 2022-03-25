@@ -17,8 +17,7 @@ app.listen(port,()=>{
     console.log(`Servidor corriendo en el puerto ${port}` )
 })
 
-// pensé que esto iba a solucionar el problema :( pero no lo hizo
-// app.use(express.static(path.join( __dirname + '/assets')));
+
 
 // disponibilizamos rutas para html y css
 app.get('/', (req, res)=>{
