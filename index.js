@@ -10,9 +10,11 @@ const { sepia } = require('jimp')
 const { mirror } = require('jimp')
 const { invert } = require('jimp')
 
+
+const port = process.env.PORT || 8080
 // abrimos servidor
-app.listen(8080,()=>{
-    console.log('Servidor corriendo en el puerto 8080')
+app.listen(port,()=>{
+    console.log(`Servidor corriendo en el puerto ${port}` )
 })
 
 // pensé que esto iba a solucionar el problema :( pero no lo hizo
