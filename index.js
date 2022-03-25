@@ -5,7 +5,6 @@ const {v4:uuidv4} = require('uuid')
 const express = require('express')
 const app = express()
 const fs = require('fs')
-const { AUTO } = require('jimp')
 const { grayscale } = require('jimp')
 const { sepia } = require('jimp')
 const { mirror } = require('jimp')
@@ -15,6 +14,8 @@ const { invert } = require('jimp')
 app.listen(8080,()=>{
     console.log('Servidor corriendo en el puerto 8080')
 })
+
+app.use(express.static(path.join( __dirname + '/assets')));
 
 // disponibilizamos rutas para html y css
 app.get('/', (req, res)=>{
