@@ -16,6 +16,10 @@
         <div class="title">
             <h1><span class="blackFontBorder">Black</span> & White  <span class="blackFontBorder">SPA</span></h1>
         </div>
+
+        <div class="parrafo">
+            <p>Te invitamos a que subas tu imagen favorita y le agregues el efecto que quieras! En caso de que quieras usar el modo "Requerimiento DesafioLatam" (Escala de grises, calidad a un 60% y 350px de ancho) solo tienes que poner la URL de la imagen y hacer click en "Subir imagen al servidor"</p>
+        </div>
         
         <div class="form">
             <form action="/imagen">
@@ -39,10 +43,11 @@
                     <label for="width">Ancho:</label>
                     <input type="number" name="width" value="350" min="0" class="input">
                 </div>
-                <div>
+                <!-- Esta parte queda comentada porque es para agregar la posibilidad de poner un Alto customizable pero para el desafio lo dejo en Auto -->
+                <!-- <div>
                     <label for="height">Alto:</label>
-                    <input type="number" name="height" value="350" min="0" class="input">
-                </div>
+                    <input name="height" min="0" class="input" value="AUTO">
+                </div> -->
                 <div>
                     <label for="quality">Calidad:</label>
                     <input type="number" name="quality" value="60" max="100" min="0" class="input">

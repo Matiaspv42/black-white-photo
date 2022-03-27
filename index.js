@@ -5,11 +5,11 @@ const {v4:uuidv4} = require('uuid')
 const express = require('express')
 const app = express()
 const fs = require('fs')
-const { grayscale } = require('jimp')
-const { sepia } = require('jimp')
-const { mirror } = require('jimp')
-const { invert } = require('jimp')
 
+
+// Comentarios: Intenté subir el codigo via vercel pero por alguna razón no reconoce el css así que cualquier comentario en cómo hacerlo sería genial! 
+//  Además, agregue un formulario y hartas opciones para poder cambiar cosas en la pagina.
+//  Las opciones que vienen por default son las que son del requerimiento
 
 const port = process.env.PORT || 8080
 // abrimos servidor
@@ -33,7 +33,7 @@ app.get('/style', (req,res)=>{
     })
 })
 
-// function efecto
+// Agregué función efecto para poder agregar más efectos además del grayscale
 function efecto(ef,img){
     switch (ef){
         case 'grayscale':
@@ -47,16 +47,18 @@ function efecto(ef,img){
     }
 }
 
+
 app.get('/imagen', (req,res)=>{
     // generamos id de 6 caracteres usando uuid
     const id = uuidv4().slice(0,6)
     // obtenemos parametros de la consulta usando express
-    const {imagen: imgUrl, effect: effect, width: ancho, height: alto, quality:calidad} = req.query
-    console.log(req.query, calidad)
+    const {imagen: imgUrl, effect: effect, width: ancho, quality:calidad} = req.query
+
+    // Procesamos la imagen
     Jimp.read(`${imgUrl}`)
     .then(img=>
     efecto(effect, img).quality(+calidad)
-    .resize(+ancho,+alto)
+    .resize(+ancho,Jimp.AUTO)
     .writeAsync(`${id}.png`).then(()=>{
         res.writeHead(200, {'Content-Type': 'image/png'})
         fs.readFile(`${id}.png`,(error, data)=>{
@@ -67,5 +69,9 @@ app.get('/imagen', (req,res)=>{
         })
     })
     )
+    // No me quedó muy claro como poder agregar este tipo de manejo de errores ya que al final termina siendo un error de que Jimp no puede procesar las imagenes si no va una url, así que lo agregué afuera, cualquier comentario genial!
+    if(imgUrl==''){
+        res.send('Recuerda agregar una URL')
+    }
 })
 

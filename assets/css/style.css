@@ -19,7 +19,7 @@
 .title{
     width: 50%;
     margin: 50px 0px;
-    padding-bottom: 100px;
+    padding-bottom: 50px;
 }
 h1{
     text-align: center;
@@ -29,6 +29,10 @@ h1{
 .blackFontBorder{
     text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
     color: black;
+}
+.parrafo{
+    width: 500px;
+    margin-bottom: 50px;
 }
 .boton{
     border: 2px solid white;
