@@ -59,9 +59,9 @@ app.get('/imagen', (req,res)=>{
     .then(img=>
     efecto(effect, img).quality(+calidad)
     .resize(+ancho,Jimp.AUTO)
-    .writeAsync(`${id}.png`).then(()=>{
-        res.writeHead(200, {'Content-Type': 'image/png'})
-        fs.readFile(`${id}.png`,(error, data)=>{
+    .writeAsync(`${id}.jpg`).then(()=>{
+        res.writeHead(200, {'Content-Type': 'image/jpg'})
+        fs.readFile(`${id}.jpg`,(error, data)=>{
             res.end(data)
             if(error){
                 res.send('Lo siento pero tuvimos un error enviando tu imagen:(')
